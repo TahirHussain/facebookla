@@ -1,5 +1,2 @@
-*.settings
-build
-.project
-.classpath
-*.jar
+
+/build/
