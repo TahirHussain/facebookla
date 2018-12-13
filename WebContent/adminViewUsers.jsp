@@ -16,19 +16,8 @@
 	color: white;
 }
 
-#adminInfo{
-	position: absolute;
-	left: 454px;
-    top: 209px;
-}
 
-#vb {
 
-    background: #1453ba;
-    border: solid #1453ba;
-    margin-left: 290px;
-
-}
 #unauth{
     position: absolute;
     top: 187px;
@@ -43,6 +32,29 @@
 	font-size: 40px;
 	color: EBEEF4;
 }
+
+#userlist {
+    position: absolute;
+    top: 140px;
+    left: 201px;
+}
+
+#usertable{
+	position:absolute;
+    width: 850px;
+    line-height: 32px;
+    border: double;
+    border-color: powderblue;
+    color: navy;
+    font-size: larger;
+    font-family: helvetica;
+}
+
+#headId{
+	color: maroon;
+}
+
+
 body {
 	margin: 0;
 	background: #FAFBFC;
@@ -56,11 +68,25 @@ body {
 			<h1 id="logo" >Admin Dashboard</h1>
 			
 		</div>
-		<div id="adminInfo">
-			<h3>No. of Users Registered: ${count}</h3>
-			
-			<c:url var="viewusersURL" value="${request.getServletContext()}/admin/viewusers"></c:url>
-			<a href="${viewusersURL}" id="vb"> <button>View Users</button></a>
+		<div id="userlist">
+			<table id="usertable">
+				<thead id="headId">
+					<tr style="outline: thin solid">
+						<td>First Name</td><td>Surname</td><td>Email</td><td>Gender</td>
+					</tr>
+				</thead>
+				<c:url var="deluserurl" value="${request.getServletContext()}/admin/deleteuser"></c:url>
+				<c:forEach var="l" items="${listOfUsers}">
+				<tr>
+					
+					<td>${l.fName}</td><td>${l.surname}</td><td>${l.emailId}</td><td>${l.gender}</td>
+					<td>
+						<a href="${deluserurl}?uid=${l.id}" id="db" > <button style="color: red;">delete</button></a>
+					</td>
+					<!-- <td>Tahir</td><td>Mir</td><td>tahirchamp@gmail.com</td><td>Male</td> -->
+				</tr>
+				</c:forEach>
+			</table>
 		</div>
 	</c:if>
 	<c:if test="${sessionScope.userId == null}">

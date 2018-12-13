@@ -8,7 +8,7 @@
     <description>Registers Users</description>
     <display-name>Reg</display-name>
     <servlet-name>Reg</servlet-name>
-    <servlet-class>com.tahir.facebookla.Reg</servlet-class>
+    <servlet-class>com.tahir.facebookla.controllers.Reg</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>Reg</servlet-name>
@@ -16,36 +16,32 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>Profile</display-name>
-    <servlet-name>Profile</servlet-name>
-    <servlet-class>com.tahir.facebookla.Profile</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>Profile</servlet-name>
-    <url-pattern>/profile</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
     <display-name>LoginController</display-name>
     <servlet-name>LoginController</servlet-name>
-    <servlet-class>com.tahir.controllers.LoginController</servlet-class>
+    <servlet-class>com.tahir.facebookla.controllers.LoginController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginController</servlet-name>
     <url-pattern>/login</url-pattern>
   </servlet-mapping>
-  
   <servlet>
-  	<servlet-name>AdminDashboard</servlet-name>
-  	<jsp-file>/adminDashboard.jsp</jsp-file>
+    <description></description>
+    <display-name>AdminViewUsers</display-name>
+    <servlet-name>AdminViewUser</servlet-name>
+    <servlet-class>com.tahir.facebookla.controllers.AdminViewUsers</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>AdminDashboard</servlet-name>
-    <url-pattern>/admin</url-pattern>
+    <servlet-name>AdminViewUser</servlet-name>
+    <url-pattern>/admin/viewusers</url-pattern>
   </servlet-mapping>
-  
-  
-  
-  
-  
+  <servlet>
+    <description></description>
+    <display-name>AdminDeleteUser</display-name>
+    <servlet-name>AdminDeleteUser</servlet-name>
+    <servlet-class>com.tahir.facebookla.controllers.AdminDeleteUser</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AdminDeleteUser</servlet-name>
+    <url-pattern>/admin/deleteuser</url-pattern>
+  </servlet-mapping>
 </web-app>

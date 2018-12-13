@@ -5,11 +5,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import javax.servlet.http.HttpSession;
+
 import com.tahir.facebookla.utils.Connector;
 
 public class LogInDao {
 	
-	public boolean checkInfo(String username, String password){
+	public boolean checkInfo(String username, String password, HttpSession session){
 		Connection con = Connector.getConnectionMySQL();
 		try {
 			PreparedStatement ps = con.prepareStatement("select userId from user where emailId = ? and password = ?");
@@ -17,7 +19,8 @@ public class LogInDao {
 			ps.setString(2, password);
 			ResultSet rs = ps.executeQuery();
 			rs.next();
-			System.out.println(rs.getInt("userId")+" user id aayaaaa re");
+			int id = rs.getInt("userId");
+			session.setAttribute("userId", id);
 			System.out.println("Aa go login");
 			return true;
 		} catch (SQLException e) {
