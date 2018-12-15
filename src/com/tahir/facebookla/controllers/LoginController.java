@@ -27,7 +27,7 @@ public class LoginController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		System.out.println("Reached here la");
+		
 		boolean loginStatus = new LogInDao().checkInfo(request.getParameter("emailId"),request.getParameter("password"),request.getSession());
 		System.out.println("Checking the session working: "+request.getSession().getAttribute("userId"));
 		if(loginStatus){

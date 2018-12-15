@@ -22,12 +22,20 @@ public class LogInDao {
 			int id = rs.getInt("userId");
 			session.setAttribute("userId", id);
 			System.out.println("Aa go login");
+			con.close();
 			return true;
 		} catch (SQLException e) {
 			e.printStackTrace();
+			try {
+				con.close();
+			} catch (SQLException e1) {
+				System.out.println("ERROR AT CON CLOSE");
+				e1.printStackTrace();
+			}
 			System.out.println("Kiheen go na login");
 			return false;
 		}
+		
 	}
 
 }

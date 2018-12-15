@@ -13,9 +13,10 @@ public class RegisterDao {
 		Connection con = Connector.getConnectionMySQL();
 		try {
 			int index;
-			ResultSet r = con.createStatement().executeQuery("select count(*) as count from user");
+			ResultSet r = con.createStatement().executeQuery("select MAX(USERId) as count from user");
 			r.next();
 			index = r.getInt("count")+1;
+			System.out.println(index);
 			System.out.println("COUNT LAAAA"+index);
 			java.sql.PreparedStatement p = con.prepareStatement("insert into user values (?,?,?,?,?,?)");
 			p.setInt(1, index);

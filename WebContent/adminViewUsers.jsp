@@ -63,7 +63,7 @@ body {
 <link rel="icon" type="image/gif/png" href="resources/imgs/fico.png">
 </head>
 <body>
-	<c:if test="${sessionScope.userId != null}">
+	<c:if test="${sessionScope.userId == 6}">
 		<div class="abc">
 			<h1 id="logo" >Admin Dashboard</h1>
 			
@@ -89,7 +89,7 @@ body {
 			</table>
 		</div>
 	</c:if>
-	<c:if test="${sessionScope.userId == null}">
+	<c:if test="${sessionScope.userId != 6}">
 		<div id="unauth">
 			<h1>UnAuthorized Access!</h1>
 		</div>
